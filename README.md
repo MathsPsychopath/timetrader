@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TimeTravelTrader
 
-## Getting Started
+## What is this?
 
-First, run the development server:
+Another WIP, but the idea is a game in which you have a starting cash value of $25000, invest in stocks as a higher/lower game. Storyline is you have a messed up time machine (called TimeBroker Mk. 1) that gives you 2 period destination choices, and a crap, partially-omnipresent brokerage that only offers 1 stock per destination. You are investing your $25000 one of these 2 choices.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Rules
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Start off with $25,000
+2. Select 1 company out of 2 choices to invest n%. Repeat until a set number of rounds
+3. You are given basic company data (e.g., sector, market cap) and the time interval
+4. You invest in the choices you make for only 1 year, before taking the P/L.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Play the daily retail challenge with an account to keep track of your decisions' growth as you play
+2. Try Overleveraged, where you're too big to fail and must always choose the most profitable outcome
+3. Simulate the daily life of hedgefund manager at TimeFunds, where you create the best portfolio for your clients using the slightly improved TimeBroker Mk. 2
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   - More stock-periods to choose with portfolio limit of 5
+   - Use of short-selling
+   - More markets (Commodities (futures?), Indices (futures?), Forex?)
+   - More capital
+   - Pitch your portfolio against others? (daily hedge fund challenge)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   [//]: # "milestone = IRL stock transfer"
