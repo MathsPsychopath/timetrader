@@ -6,13 +6,9 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
-const semanticTokens = {
-  colors,
-};
-
 const sizes = {
   window: "100vh",
 };
 
-const theme = extendTheme({ sizes, semanticTokens, config });
+const theme = extendTheme({ sizes, colors, config });
 export default theme;
