@@ -40,9 +40,9 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
               {showLabel && (
                 <Text
                   as={motion.p}
-                  initial={{ x: -10, opacity: 0 }}
+                  initial={{ x: -50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -10, opacity: 0 }}
+                  exit={{ x: -50, opacity: 0 }}
                 >
                   {label}
                 </Text>

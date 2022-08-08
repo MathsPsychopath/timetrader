@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { chakra, useColorModeValue } from "@chakra-ui/react";
+import { chakra, Heading, Spacer, useColorModeValue } from "@chakra-ui/react";
 import { useWindowWidth } from "@react-hook/window-size";
 
 import { Flex, List, Text } from "@chakra-ui/react";
@@ -29,16 +29,28 @@ export default function NavBar() {
         animate={{ width: "30%" }}
         exit={{ width: "70px" }}
         transition="0.5s ease"
-        direction="column"
         h="window"
+        p="2"
+        direction="column"
         position="relative"
         alignItems="center"
-        p="2"
+        boxShadow="2xl"
       >
-        <Flex direction="row">
-          <Text opacity={isExpanded ? 1 : 0} py="4">
-            TimeTrader
-          </Text>
+        <Flex direction="row" alignItems="center">
+          <Spacer py="6" />
+          <AnimatePresence>
+            {isExpanded && (
+              <Heading
+                variant="heading-3"
+                as={motion.h1}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -50, opacity: 0 }}
+              >
+                TimeTrader
+              </Heading>
+            )}
+          </AnimatePresence>
           <chakra.button
             onClick={() => setExpanded(!isExpanded)}
             fontSize="4xl"
