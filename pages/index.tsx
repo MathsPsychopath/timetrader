@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import NavBar from "../components/common/NavBar";
+import { chakra } from "@chakra-ui/react";
+import ColorModeSwitch from "../components/common/ColorModeSwitch";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <chakra.div position="relative">
       <Head>
         <title>TimeTrader</title>
         <meta
@@ -14,8 +15,9 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav></nav>
-    </div>
+      <ColorModeSwitch />
+      <NavBar />
+    </chakra.div>
   );
 };
 
