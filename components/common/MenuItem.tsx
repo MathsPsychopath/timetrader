@@ -31,7 +31,7 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
         variant={isHighlighted ? "menu-item-this" : "menu-item-other"}
         display="block"
         roundedLeft="xl"
-        _hover={{ bg: hoverColor }}
+        _hover={{ bg: hoverColor, color: colors.WHITE }}
       >
         <Flex paddingLeft="4" h="12">
           <HStack>
@@ -40,7 +40,6 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
               {showLabel && (
                 <Text
                   as={motion.p}
-                  transition="0.25s ease"
                   initial={{ x: -10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: -10, opacity: 0 }}

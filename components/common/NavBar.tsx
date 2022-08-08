@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
 import { useWindowWidth } from "@react-hook/window-size";
 
-import { Flex, List } from "@chakra-ui/react";
+import { Flex, List, Text } from "@chakra-ui/react";
 import { MdHome, MdLeaderboard, MdMenu } from "react-icons/md";
 import { BiCalendarCheck, BiCalendarExclamation } from "react-icons/bi";
 import { FaBalanceScaleRight } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { GiPieChart } from "react-icons/gi";
 
 import MenuItem from "./MenuItem";
 import colors from "../../themes/colors";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function NavBar() {
   const [isExpanded, setExpanded] = useState<boolean>(true);
@@ -21,30 +21,37 @@ export default function NavBar() {
   return (
     <nav>
       <Flex
-        as={motion.div}
-        minW={isExpanded ? "200px" : "70px"}
         maxW={isExpanded ? "300px" : "70px"}
-        initial={{ width: "8%" }}
-        animate={{ width: "30%" }}
-        exit={{ width: "8%" }}
-        // w={isExpanded ? "30%" : "8%"}
-        transition="0.5s linear"
+        minW={isExpanded ? "200px" : "70px"}
+        as={motion.div}
         bgColor={bgMenu}
+        initial={{ width: "70px" }}
+        animate={{ width: "30%" }}
+        exit={{ width: "70px" }}
+        transition="0.5s ease"
         direction="column"
         h="window"
-        position="sticky"
+        position="relative"
         alignItems="center"
         p="2"
       >
-        <chakra.button
-          onClick={() => setExpanded(!isExpanded)}
-          fontSize="4xl"
-          id="menu-toggle"
-          aria-label="toggle menu"
-          aria-pressed={isExpanded}
-        >
-          <MdMenu aria-hidden="true" />
-        </chakra.button>
+        <Flex direction="row">
+          <Text opacity={isExpanded ? 1 : 0} py="4">
+            TimeTrader
+          </Text>
+          <chakra.button
+            onClick={() => setExpanded(!isExpanded)}
+            fontSize="4xl"
+            id="menu-toggle"
+            aria-label="toggle menu"
+            aria-pressed={isExpanded}
+            position="absolute"
+            top="4"
+            right="4"
+          >
+            <MdMenu aria-hidden="true" />
+          </chakra.button>
+        </Flex>
         <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
           <MenuItem
             showLabel={isExpanded}
