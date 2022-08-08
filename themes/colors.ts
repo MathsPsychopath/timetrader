@@ -1,21 +1,55 @@
+/**
+ * this is my solution to avoiding the cancerous Chakra UI color
+ * customisation, where the defining my own custom colors fails
+ */
+
 const colors = {
-  black: {
-    default: "#3a3a3a", //black-text
-    100: "#f5f5f6", //10
-    200: "#ededef", //20
-    300: "#d0d0d5", //30
-    500: "#737481", //50
-    600: "#4c4c5c", //header-dark
-    700: "#454657", //70
+  BLACK_TEXT: "#3A3A3A",
+  BLACK_70: "#454657",
+  BLACK_50: "#737481",
+  GREY: "#EDEDEF",
+  WHITE: "#F5F5F6",
+  DARK: {
+    HEADER: "#4c4c5c",
+    FOCUSED: "#959bff",
+    ACTIVE: "#D36BA9",
+    POSITIVE: "#58D28F",
+    NEGATIVE: "#EC775D",
+    BLUE: "#409DD0",
+    ORANGE: "#E5A24A",
+    SECTOR: {
+      TECH: "#9FA5FF",
+      FINANCIAL: "#F47E64",
+      HEALTH: "#6FE1A2",
+      ENERGY: "#FFF170",
+      REAL_ESTATE: "#FFBF6B",
+      DISCRETE: "#C66D2D",
+      INDUSTRIAL: "#DB89BA",
+      STAPLES: "#55B9FF",
+      COMMS: "#DAEBFF",
+      CASH: "#92C57A",
+    },
   },
-  focused: {
-    default: "#6b74ff",
-    _dark: "#959bff",
+  LIGHT: {
+    FOCUSED: "#6b74ff",
+    ACTIVE: "#D94CA0",
+    POSITIVE: "#23D975",
+    NEGATIVE: "#F04520",
+    BLUE: "#2AB1FC",
+    ORANGE: "#FCA12B",
+    SECTOR: {
+      TECH: "#6B74FF",
+      FINANCIAL: "#F04520",
+      HEALTH: "#33D67C",
+      ENERGY: "#FCE72B",
+      REAL_ESTATE: "#FCA12B",
+      DISCRETE: "#C95400",
+      INDUSTRIAL: "#D94CA0",
+      STAPLES: "#0E9CFF",
+      COMMS: "#B8D9FF",
+      CASH: "#66B342",
+    },
   },
-  active: {
-    default: "#d94ca0",
-    _dark: "#d36ba9",
-  },
-};
+} as const;
 
 export default colors;

@@ -1,5 +1,5 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
-import colors from "./colors";
+import Link from "./components/Link";
 
 const config: ThemeConfig = {
   initialColorMode: "light",
@@ -10,5 +10,14 @@ const sizes = {
   window: "100vh",
 };
 
-const theme = extendTheme({ sizes, colors, config });
+const components = {
+  Link,
+};
+
+const theme = extendTheme({
+  sizes,
+  config,
+  components,
+});
+
 export default theme;
