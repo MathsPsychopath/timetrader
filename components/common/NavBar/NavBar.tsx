@@ -1,16 +1,26 @@
 import React, { useState } from "react";
-import { chakra, Heading, Spacer, useColorModeValue } from "@chakra-ui/react";
 import { useWindowWidth } from "@react-hook/window-size";
 
-import { Flex, List, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  List,
+  Spacer,
+  Text,
+  useColorModeValue,
+  VStack,
+} from "@chakra-ui/react";
 import { MdHome, MdLeaderboard, MdMenu } from "react-icons/md";
 import { BiCalendarCheck, BiCalendarExclamation } from "react-icons/bi";
 import { FaBalanceScaleRight } from "react-icons/fa";
 import { GiPieChart } from "react-icons/gi";
+import { AiOutlineSetting } from "react-icons/ai";
 
-import MenuItem from "./MenuItem";
-import colors from "../../themes/colors";
+import MenuItem from "./deps/MenuItem";
+import colors from "../../../themes/colors";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { IconButton } from "./deps/IconButton";
+import { NavHead } from "./deps/NavHead";
 
 export default function NavBar() {
   const [isExpanded, setExpanded] = useState<boolean>(true);
@@ -37,32 +47,18 @@ export default function NavBar() {
         boxShadow="2xl"
       >
         <Flex direction="row" alignItems="center">
-          <Spacer py="6" />
-          <AnimatePresence>
-            {isExpanded && (
-              <Heading
-                variant="heading-3"
-                as={motion.h1}
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -50, opacity: 0 }}
-              >
-                TimeTrader
-              </Heading>
-            )}
-          </AnimatePresence>
-          <chakra.button
-            onClick={() => setExpanded(!isExpanded)}
+          <NavHead isExpanded={isExpanded} />
+          <Spacer p="6" />
+          <IconButton
+            Icon={MdMenu}
+            setClicked={setExpanded}
+            clicked={isExpanded}
+            label="menu toggle"
+            buttonId="menu-toggle"
             fontSize="4xl"
-            id="menu-toggle"
-            aria-label="toggle menu"
-            aria-pressed={isExpanded}
-            position="absolute"
             top="4"
             right="4"
-          >
-            <MdMenu aria-hidden="true" />
-          </chakra.button>
+          />
         </Flex>
         <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
           <MenuItem
@@ -97,6 +93,20 @@ export default function NavBar() {
             href="/ranks"
           />
         </List>
+        {/* <VStack>
+          <Image src="/" alt="profile picture" width={30} height={30} />
+          <IconButton
+            Icon={AiOutlineSetting}
+            setClicked={setExpanded}
+            clicked={isExpanded}
+            label="settings"
+            buttonId="settings"
+            left="0"
+            fontSize="3xl"
+            ml="3.5"
+            paddingLeft="4"
+          />
+        </VStack> */}
       </Flex>
     </nav>
   );

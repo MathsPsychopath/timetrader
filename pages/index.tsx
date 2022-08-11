@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import NavBar from "../components/common/NavBar";
+import NavBar from "../components/common/NavBar/NavBar";
 import { chakra } from "@chakra-ui/react";
 import ColorModeSwitch from "../components/common/ColorModeSwitch";
 

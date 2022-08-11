@@ -10,15 +10,15 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import colors from "../../themes/colors";
+import colors from "../../../../themes/colors";
 import { AnimatePresence, motion } from "framer-motion";
 
-interface ItemProps {
+type ItemProps = {
   icon: IconType;
   label: string;
   href: string;
   showLabel: boolean;
-}
+};
 
 export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
   const router = useRouter();
@@ -42,7 +42,7 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
                   as={motion.p}
                   initial={{ x: -50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -50, opacity: 0 }}
+                  exit={{ x: -25, opacity: 0 }}
                 >
                   {label}
                 </Text>
