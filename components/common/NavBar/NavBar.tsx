@@ -2,42 +2,43 @@ import React, { useState } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 
 import {
+  chakra,
   Flex,
   List,
   Spacer,
-  Text,
   useColorModeValue,
   VStack,
+  Box,
 } from "@chakra-ui/react";
 import { MdHome, MdLeaderboard, MdMenu } from "react-icons/md";
-import { BiCalendarCheck, BiCalendarExclamation } from "react-icons/bi";
+import {
+  BiCalendarCheck,
+  BiCalendarExclamation,
+  BiLogOut,
+} from "react-icons/bi";
 import { FaBalanceScaleRight } from "react-icons/fa";
 import { GiPieChart } from "react-icons/gi";
 import { AiOutlineSetting } from "react-icons/ai";
 
 import MenuItem from "./deps/MenuItem";
 import colors from "../../../themes/colors";
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { IconButton } from "./deps/IconButton";
 import { NavHead } from "./deps/NavHead";
+import MenuElement from "./deps/MenuElement";
 
 export default function NavBar() {
   const [isExpanded, setExpanded] = useState<boolean>(true);
   const width = useWindowWidth();
   const bgMenu = useColorModeValue(colors.WHITE, colors.DARK.HEADER);
   const bgSecondary = useColorModeValue(colors.GREY, colors.BLACK_50);
-
+  const color = useColorModeValue(colors.BLACK_TEXT, colors.WHITE);
   return (
     <nav>
       <Flex
         maxW={isExpanded ? "300px" : "70px"}
         minW={isExpanded ? "200px" : "70px"}
-        as={motion.div}
+        w="30%"
         bgColor={bgMenu}
-        initial={{ width: "70px" }}
-        animate={{ width: "30%" }}
-        exit={{ width: "70px" }}
         transition="0.5s ease"
         h="window"
         p="2"
@@ -49,16 +50,19 @@ export default function NavBar() {
         <Flex direction="row" alignItems="center">
           <NavHead isExpanded={isExpanded} />
           <Spacer p="6" />
-          <IconButton
-            Icon={MdMenu}
-            setClicked={setExpanded}
-            clicked={isExpanded}
-            label="menu toggle"
-            buttonId="menu-toggle"
-            fontSize="4xl"
-            top="4"
-            right="4"
-          />
+          <Box>
+            <chakra.button
+              onClick={() => setExpanded(!isExpanded)}
+              fontSize="4xl"
+              position="absolute"
+              top="4"
+              right="4"
+              aria-label="menu toggle"
+              aria-pressed={isExpanded}
+            >
+              <MdMenu aria-hidden color={color} />
+            </chakra.button>
+          </Box>
         </Flex>
         <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
           <MenuItem
@@ -93,20 +97,19 @@ export default function NavBar() {
             href="/ranks"
           />
         </List>
-        {/* <VStack>
-          <Image src="/" alt="profile picture" width={30} height={30} />
-          <IconButton
-            Icon={AiOutlineSetting}
-            setClicked={setExpanded}
-            clicked={isExpanded}
-            label="settings"
-            buttonId="settings"
-            left="0"
-            fontSize="3xl"
-            ml="3.5"
-            paddingLeft="4"
-          />
-        </VStack> */}
+
+        <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
+          <chakra.button aria-label="Settings">
+            <MenuElement icon={AiOutlineSetting} showLabel={isExpanded}>
+              Settings
+            </MenuElement>
+          </chakra.button>
+          <chakra.button aria-label="Log out">
+            <MenuElement icon={BiLogOut} showLabel={isExpanded}>
+              Log out
+            </MenuElement>
+          </chakra.button>
+        </List>
       </Flex>
     </nav>
   );

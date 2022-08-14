@@ -1,7 +1,9 @@
-import { Icon, Heading, Flex } from "@chakra-ui/react";
+import { Icon, Heading, Flex, useColorModeValue } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
+import colors from "../../../../themes/colors";
 
 export const NavHead: React.FC<{ isExpanded: boolean }> = ({ isExpanded }) => {
+  const color = useColorModeValue(colors.BLACK_TEXT, colors.WHITE);
   return (
     <AnimatePresence>
       {isExpanded && (
@@ -25,7 +27,9 @@ export const NavHead: React.FC<{ isExpanded: boolean }> = ({ isExpanded }) => {
               strokeWidth="11"
             />
           </Icon>
-          <Heading variant="heading-3">TimeTrader</Heading>
+          <Heading variant="heading-3" color={color}>
+            TimeTrader
+          </Heading>
         </Flex>
       )}
     </AnimatePresence>

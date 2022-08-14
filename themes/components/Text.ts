@@ -1,5 +1,4 @@
 import { ComponentStyleConfig } from "@chakra-ui/react";
-import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 const Text: ComponentStyleConfig = {
   baseStyle: {

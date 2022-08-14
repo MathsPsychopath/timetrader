@@ -12,6 +12,7 @@ import {
 import { useRouter } from "next/router";
 import colors from "../../../../themes/colors";
 import { AnimatePresence, motion } from "framer-motion";
+import MenuElement from "./MenuElement";
 
 type ItemProps = {
   icon: IconType;
@@ -32,24 +33,11 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
         display="block"
         roundedLeft="xl"
         _hover={{ bg: hoverColor, color: colors.WHITE }}
+        aria-label={label}
       >
-        <Flex paddingLeft="4" h="12">
-          <HStack>
-            <ListIcon as={icon} w="25px" h="25px" />
-            <AnimatePresence>
-              {showLabel && (
-                <Text
-                  as={motion.p}
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -25, opacity: 0 }}
-                >
-                  {label}
-                </Text>
-              )}
-            </AnimatePresence>
-          </HStack>
-        </Flex>
+        <MenuElement icon={icon} showLabel={showLabel}>
+          {label}
+        </MenuElement>
       </Link>
     </ListItem>
   );
