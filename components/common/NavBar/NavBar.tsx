@@ -25,6 +25,7 @@ import colors from "../../../themes/colors";
 import Image from "next/image";
 import { NavHead } from "./deps/NavHead";
 import MenuElement from "./deps/MenuElement";
+import ModalButtons from "./deps/ModalButtons";
 
 export default function NavBar() {
   const [isExpanded, setExpanded] = useState<boolean>(true);
@@ -32,6 +33,7 @@ export default function NavBar() {
   const bgMenu = useColorModeValue(colors.WHITE, colors.DARK.HEADER);
   const bgSecondary = useColorModeValue(colors.GREY, colors.BLACK_50);
   const color = useColorModeValue(colors.BLACK_TEXT, colors.WHITE);
+  const theme = useColorModeValue(colors.LIGHT, colors.DARK);
   return (
     <nav>
       <Flex
@@ -64,7 +66,7 @@ export default function NavBar() {
             </chakra.button>
           </Box>
         </Flex>
-        <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
+        <List w="full" bg={bgSecondary} ml="3.5" mt="3.5" roundedLeft="xl">
           <MenuItem
             showLabel={isExpanded}
             icon={MdHome}
@@ -97,18 +99,18 @@ export default function NavBar() {
             href="/ranks"
           />
         </List>
-
-        <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl">
-          <chakra.button aria-label="Settings">
-            <MenuElement icon={AiOutlineSetting} showLabel={isExpanded}>
-              Settings
-            </MenuElement>
-          </chakra.button>
-          <chakra.button aria-label="Log out">
-            <MenuElement icon={BiLogOut} showLabel={isExpanded}>
-              Log out
-            </MenuElement>
-          </chakra.button>
+        <Spacer />
+        <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl" mb="4">
+          <ModalButtons
+            icon={AiOutlineSetting}
+            showLabel={isExpanded}
+            label="Settings"
+          />
+          <ModalButtons
+            icon={BiLogOut}
+            showLabel={isExpanded}
+            label="Log out"
+          />
         </List>
       </Flex>
     </nav>

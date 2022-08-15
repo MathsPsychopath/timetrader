@@ -17,6 +17,7 @@ export default function MenuElement({ icon, showLabel, children }: Props) {
         <AnimatePresence>
           {showLabel && (
             <Text
+              whiteSpace="nowrap"
               as={motion.p}
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}

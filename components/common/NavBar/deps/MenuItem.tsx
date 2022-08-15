@@ -24,7 +24,7 @@ type ItemProps = {
 export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
   const router = useRouter();
   const isHighlighted = router.pathname.includes(href);
-  const hoverColor = useColorModeValue(colors.LIGHT.ACTIVE, colors.DARK.ACTIVE);
+  const theme = useColorModeValue(colors.LIGHT, colors.DARK);
   return (
     <ListItem>
       <Link
@@ -32,7 +32,7 @@ export default function MenuItem({ icon, label, href, showLabel }: ItemProps) {
         variant={isHighlighted ? "menu-item-this" : "menu-item-other"}
         display="block"
         roundedLeft="xl"
-        _hover={{ bg: hoverColor, color: colors.WHITE }}
+        _hover={{ bg: theme.ACTIVE, color: colors.WHITE }}
         aria-label={label}
       >
         <MenuElement icon={icon} showLabel={showLabel}>
