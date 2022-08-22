@@ -1,4 +1,4 @@
-import { chakra, theme, useColorModeValue } from "@chakra-ui/react";
+import { chakra, ListItem, theme, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { IconType } from "react-icons";
 import { BiLogOut } from "react-icons/bi";
@@ -14,16 +14,19 @@ type Props = {
 export default function ModalButtons({ icon, showLabel, label }: Props) {
   const theme = useColorModeValue(colors.LIGHT, colors.DARK);
   return (
-    <chakra.button
-      aria-label="Log out"
-      display="block"
-      w="full"
-      roundedLeft="xl"
-      _hover={{ bg: theme.ACTIVE, color: colors.WHITE }}
-    >
-      <MenuElement icon={icon} showLabel={showLabel}>
-        {label}
-      </MenuElement>
-    </chakra.button>
+    <ListItem>
+      <chakra.button
+        aria-label={label}
+        display="block"
+        w="full"
+        roundedLeft="xl"
+        transition="0.25s ease"
+        _hover={{ bg: theme.ACTIVE, color: colors.WHITE }}
+      >
+        <MenuElement icon={icon} showLabel={showLabel}>
+          {label}
+        </MenuElement>
+      </chakra.button>
+    </ListItem>
   );
 }
