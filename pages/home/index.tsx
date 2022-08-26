@@ -3,9 +3,9 @@ import NavBar from "../../components/common/NavBar/NavBar";
 
 const Home: NextPage = () => {
   return (
-    <>
-      <NavBar />
-    </>
+    <NavBar>
+      <p>Hello</p>
+    </NavBar>
   );
 };
 

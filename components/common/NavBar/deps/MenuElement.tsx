@@ -8,7 +8,9 @@ type Props = {
   showLabel: boolean;
   children: React.ReactNode;
 };
-
+/**
+ * @returns Icon + Text for nav menu as list
+ */
 export default function MenuElement({ icon, showLabel, children }: Props) {
   return (
     <Flex paddingLeft="4" h="12">

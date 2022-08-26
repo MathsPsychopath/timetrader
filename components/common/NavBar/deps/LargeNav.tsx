@@ -28,7 +28,7 @@ export default function LargeNav() {
     <nav>
       <Flex
         maxW={isExpanded ? "300px" : "70px"}
-        minW={isExpanded ? "250px" : "70px"}
+        minW={isExpanded ? "275px" : "70px"}
         w="30%"
         bgColor={bgMenu}
         transition="0.5s ease"

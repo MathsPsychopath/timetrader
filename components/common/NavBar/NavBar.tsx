@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import { Flex } from "@chakra-ui/react";
+import React from "react";
 import useWindowBreakpoint from "../../../hooks/useWindowBreakpoint/useWindowBreakpoint";
 import LargeNav from "./deps/LargeNav";
 import SmallNav from "./deps/SmallNav";
 
-export default function NavBar() {
+export default function NavBar({ children }: { children: React.ReactNode }) {
   const isSmall = useWindowBreakpoint(640);
-  if (isSmall) return <SmallNav />;
-  return <LargeNav />;
+  return (
+    <Flex direction={isSmall ? "column" : "row"}>
+      {isSmall ? <SmallNav /> : <LargeNav />}
+      {children}
+    </Flex>
+  );
 }
