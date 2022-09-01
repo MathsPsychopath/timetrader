@@ -15,9 +15,9 @@ import { NavHead } from "./NavHead";
 
 function Head({ bg }: { bg: string }) {
   return (
-    <Flex direction="row" bg={bg} py="3" px="1" w="full">
+    <Flex direction="row" bg={bg} py="3" px="1">
       <NavHead isExpanded />
-      <Spacer />
+      <Spacer minWidth="4" />
       <HStack mr="4">
         <chakra.button fontSize="3xl">
           <AiOutlineSetting />

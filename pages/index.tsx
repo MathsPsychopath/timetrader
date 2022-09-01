@@ -6,7 +6,7 @@ import ColorModeSwitch from "../components/common/ColorModeSwitch";
 
 const Home: NextPage = () => {
   return (
-    <chakra.div position="relative">
+    <chakra.div position="relative" width={["fit-content", "full"]}>
       <Head>
         <title>TimeTrader</title>
         <meta
@@ -16,7 +16,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ColorModeSwitch />
-      <NavBar />
+      <NavBar>
+        <p>Hello</p>
+      </NavBar>
     </chakra.div>
   );
 };
