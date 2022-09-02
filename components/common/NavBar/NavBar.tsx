@@ -8,8 +8,14 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
   const isSmall = useWindowBreakpoint(640);
   return (
     <Flex direction={isSmall ? "column" : "row"}>
-      {isSmall ? <SmallNav /> : <LargeNav />}
-      {children}
+      {isSmall ? (
+        <SmallNav>{children}</SmallNav>
+      ) : (
+        <>
+          <LargeNav />
+          {children}
+        </>
+      )}
     </Flex>
   );
 }

@@ -1,8 +1,17 @@
-import { Icon, Heading, Flex, useColorModeValue } from "@chakra-ui/react";
+import {
+  Icon,
+  Heading,
+  Flex,
+  useColorModeValue,
+  SpaceProps,
+} from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import colors from "../../../../themes/colors";
 
-export const NavHead: React.FC<{ isExpanded: boolean }> = ({ isExpanded }) => {
+export const NavHead: React.FC<{ isExpanded: boolean } & SpaceProps> = ({
+  isExpanded,
+  ml,
+}) => {
   const color = useColorModeValue(colors.BLACK_TEXT, colors.WHITE);
   return (
     <AnimatePresence>
@@ -12,6 +21,7 @@ export const NavHead: React.FC<{ isExpanded: boolean }> = ({ isExpanded }) => {
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -50, opacity: 0 }}
+          ml={ml}
         >
           <Icon viewBox="0 0 512 512" w="8" h="8">
             <path
