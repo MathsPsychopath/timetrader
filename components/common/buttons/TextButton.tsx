@@ -1,6 +1,5 @@
 import { chakra, Flex, Link, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
-import { IconType } from "react-icons";
 
 type Props = {
   children: React.ReactNode;
