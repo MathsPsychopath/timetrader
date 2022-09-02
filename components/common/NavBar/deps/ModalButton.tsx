@@ -11,7 +11,7 @@ type Props = {
   label: string;
 };
 
-export default function ModalButtons({ icon, showLabel, label }: Props) {
+export default function ModalButton({ icon, showLabel, label }: Props) {
   const theme = useColorModeValue(colors.LIGHT, colors.DARK);
   return (
     <ListItem>

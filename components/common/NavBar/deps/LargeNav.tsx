@@ -5,6 +5,7 @@ import {
   chakra,
   List,
   Box,
+  IconButton,
 } from "@chakra-ui/react";
 import { useWindowWidth } from "@react-hook/window-size";
 import React, { useState } from "react";
@@ -14,7 +15,7 @@ import { FaBalanceScaleRight } from "react-icons/fa";
 import { GiPieChart } from "react-icons/gi";
 import { MdMenu, MdHome, MdLeaderboard } from "react-icons/md";
 import colors from "../../../../themes/colors";
-import ModalButtons from "./ModalButtons";
+import ModalButton from "./ModalButton";
 import { NavHead } from "./NavHead";
 import MenuItem from "./MenuItem";
 
@@ -42,19 +43,18 @@ export default function LargeNav() {
         <Flex direction="row" alignItems="center">
           <NavHead isExpanded={isExpanded} />
           <Spacer p="6" />
-          <Box>
-            <chakra.button
-              onClick={() => setExpanded(!isExpanded)}
-              fontSize="4xl"
-              position="absolute"
-              top="4"
-              right="4"
-              aria-label="menu toggle"
-              aria-pressed={isExpanded}
-            >
-              <MdMenu aria-hidden color={color} />
-            </chakra.button>
-          </Box>
+          <IconButton
+            onClick={() => setExpanded(!isExpanded)}
+            fontSize="4xl"
+            position="absolute"
+            top="4"
+            right="4"
+            aria-label="menu toggle"
+            aria-pressed={isExpanded}
+            icon={<MdMenu color={color} />}
+            variant="outline"
+            border="0px"
+          />
         </Flex>
         <List w="full" bg={bgSecondary} ml="3.5" mt="3.5" roundedLeft="xl">
           <MenuItem
@@ -91,16 +91,12 @@ export default function LargeNav() {
         </List>
         <Spacer />
         <List w="full" bg={bgSecondary} ml="3.5" roundedLeft="xl" mb="4">
-          <ModalButtons
+          <ModalButton
             icon={AiOutlineSetting}
             showLabel={isExpanded}
             label="Settings"
           />
-          <ModalButtons
-            icon={BiLogOut}
-            showLabel={isExpanded}
-            label="Log out"
-          />
+          <ModalButton icon={BiLogOut} showLabel={isExpanded} label="Log out" />
         </List>
       </Flex>
     </nav>
